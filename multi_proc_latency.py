@@ -2,7 +2,7 @@
 
 import random
 
-print 'starting up\n'
+print("starting up\n")
 
 # All times in real seconds.
 
@@ -17,7 +17,7 @@ latencies = [None] * total
 task_latency = 0.01
 target_utilization = 0.9
 end_time = total * task_latency / target_utilization / float(num_cpus)
-print "end time : %s" % end_time
+print ("end time : %s" % end_time)
 
 # Setup tasks
 for x in range(0,total):
@@ -43,14 +43,14 @@ for x in tasks:
 
 # Sort latencies and render results.
 latencies.sort()
-print "ideal task latency : %s" % task_latency
-print "total tasks : %s" % total
-print "target utilization : %s" % target_utilization
-print "utilization: %s" % (task_latency*total / num_cpus / (end_time-start_time))
-print "num_cpus : %s" % num_cpus
+print ("ideal task latency : %s" % task_latency)
+print ("total tasks : %s" % total)
+print ("target utilization : %s" % target_utilization)
+print ("utilization: %s" % (task_latency*total / num_cpus / (end_time-start_time)))
+print ("num_cpus : %s" % num_cpus)
 
 
 for pct in [0.25,0.50,0.90,0.95,0.99]:
   pct_latency = latencies[int(pct*total)]
-  print "latency at %0.2f pct: %0.6f" % (pct, pct_latency)
-  print "    mult factor: %2.1f" % (pct_latency / task_latency)
+  print ("latency at %0.2f pct: %0.6f" % (pct, pct_latency))
+  print ("    mult factor: %2.1f" % (pct_latency / task_latency))
